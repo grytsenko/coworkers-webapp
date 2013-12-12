@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:fragment="head">
+
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<title th:text="#{app.title}"></title>
+
+<link rel="stylesheet"
+    href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" />
+<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"
+    rel="stylesheet" />
+<link rel="stylesheet" th:href="@{/static/css/coworkers.css}" />
+
+</head>
+
+<body>
+
+    <div th:fragment="navbar">
+        <div class="navbar navbar-fixed-top navbar-inverse">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle"
+                        data-toggle="collapse"
+                        data-target=".navbar-ex1-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" th:href="@{/coworkers}"
+                        th:text="#{app.title}"></a>
+                </div>
+                <div class="collapse navbar-collapse navbar-ex1-collapse">
+                    <ul class="nav navbar-nav">
+                        <li>
+                            <a th:href="@{/coworkers}">
+                                <i class="fa fa-group"></i>
+                                <span th:text="#{page.coworkers}"></span>
+                            </a>
+                        </li>
+                        <li>
+                            <a th:href="@{/apps}">
+                                <i class="fa fa-tablet"></i>
+                                <span th:text="#{page.apps}"></span>
+                            </a>
+                        </li>
+                    </ul>
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a th:href="@{/logout}">
+                                <i class="fa fa-sign-out"></i>
+                                <span th:text="#{user.signout}"></span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div th:fragment="scripts">
+        <script src="//code.jquery.com/jquery-latest.min.js"></script>
+        <script
+            src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+    </div>
+</body>
+
+</html>

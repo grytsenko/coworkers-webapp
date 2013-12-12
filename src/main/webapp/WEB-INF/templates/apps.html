@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:include="fragments/common :: head" />
+
+<body>
+    <div th:include="fragments/common :: navbar"></div>
+
+    <div class="container">
+        <div class="row row-app" th:if="${androidApp}"
+            th:with="app=${androidApp}, platform=#{app.android}"
+            th:include="fragments/apps :: app"></div>
+    </div>
+
+    <div th:include="fragments/common :: scripts"></div>
+</body>
+
+</html>

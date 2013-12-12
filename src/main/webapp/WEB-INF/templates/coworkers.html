@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:include="fragments/common :: head" />
+
+<body>
+    <div th:include="fragments/common :: navbar"></div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="input-group">
+                    <span class="input-group-addon">
+                        <i class="fa fa-filter"></i>
+                    </span>
+                    <input id="filter" type="text" class="form-control"></input>
+                </div>
+            </div>
+        </div>
+
+        <div class="row row-employee" th:each="employee : ${employees}"
+            th:include="fragments/employees :: employee"></div>
+    </div>
+
+    <div th:include="fragments/common :: scripts"></div>
+    <div>
+        <script th:src="@{/static/js/filter.js}"></script>
+    </div>
+</body>
+
+</html>

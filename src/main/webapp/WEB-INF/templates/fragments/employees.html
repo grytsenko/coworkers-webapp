@@ -1,0 +1,41 @@
+<html xmlns:th="http://www.thymeleaf.org">
+
+<body>
+
+    <div th:fragment="employee">
+        <div class="col-xs-12 col-md-6">
+            <h4 id="name">
+                <span
+                    th:text="${employee.lastName} + ' ' + ${employee.firstName}"></span>
+                <br />
+                <small
+                    th:unless="${#strings.isEmpty(employee.lastNameNative) or #strings.isEmpty(employee.firstNameNative)}"
+                    th:text="' ' + ${employee.lastNameNative} + ' ' + ${employee.firstNameNative}"></small>
+            </h4>
+            <p id="position" th:text="${employee.position}"
+                th:if="${not #strings.isEmpty(employee.position)}"></p>
+        </div>
+        <div class="col-xs-12 col-md-6">
+            <ul class="fa-ul employees-list">
+                <li th:if="${not #strings.isEmpty(employee.email)}">
+                    <i class="fa-li fa fa-envelope"></i>
+                    <a id="mail" th:href="'mailto:' + ${employee.email}"
+                        th:text="${employee.email}"></a>
+                </li>
+                <li th:if="${not #strings.isEmpty(employee.mobile)}">
+                    <i class="fa-li fa fa-phone"></i>
+                    <a id="phone" th:href="'tel:' + ${employee.mobile}"
+                        th:text="${employee.mobile}"></a>
+                </li>
+                <li th:if="${not #strings.isEmpty(employee.skype)}">
+                    <i class="fa-li fa fa-skype"></i>
+                    <a id="skype" th:href="'skype:' + ${employee.skype}"
+                        th:text="${employee.skype}"></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+</body>
+
+</html>

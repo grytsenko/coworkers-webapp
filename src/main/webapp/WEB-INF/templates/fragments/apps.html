@@ -1,0 +1,30 @@
+<html xmlns:th="http://www.thymeleaf.org">
+
+<body>
+
+    <div th:fragment="app">
+        <div class="col-md-12">
+            <div class="media" th:object="${app}">
+                <a class="pull-right hidden-xs" th:href="*{downloadUrl}">
+                    <img class="media-object" th:src="*{barcodeImageUrl}"
+                        onerror="$(this).hide();" />
+                </a>
+
+                <div class="media-body">
+                    <h3 class="media-heading">
+                        <span th:text="*{title}"></span>
+                        <span class="label label-default" th:text="${platform}"></span>
+                    </h3>
+                    <p th:text="*{summary}"></p>
+                    <a class="btn btn-success btn-lg" th:href="*{downloadUrl}">
+                        <i class="fa fa-download fa-lg"></i>
+                        <span th:text="#{app.download}"></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
